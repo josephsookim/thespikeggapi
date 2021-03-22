@@ -17,21 +17,15 @@ class Spike:
         matches = soup.findAll(
             'li', {'class': 'single-match element-trim-button main-colour-background'})
 
-        match_list = []
-
-        for match in matches:
-            url_path = match.find('a')['href']
-
-            teams = [team for team in ' '.join(
-                re.split('\s+', match.find('div', {'class': 'match-info-match'}).text)).strip().split(' vs ')]
-
-            scores = [match.find('span', {'class': f'team-{num}'}).text.strip()
-                      for num in (1, 2)]
-
-            event = match.find(
-                'div', {'class': 'match-info-event'}).text.strip()
-
-            match_list.append(Match(*teams, *scores, event, url_path))
+        match_list = [
+            Match(
+                *[team for team in ' '.join(re.split('\s+', match.find('div', {'class': 'match-info-match'}).text)).strip().split(' vs ')],
+                *[match.find('span', {'class': f'team-{num}'}).text.strip() for num in (1, 2)],
+                match.find('div', {'class': 'match-info-event'}).text.strip(),
+                match.find('a')['href']
+            )
+            for match in matches
+        ]
 
         return [match.get_info_dict() for match in match_list]
 
