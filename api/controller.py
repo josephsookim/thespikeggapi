@@ -2,7 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 import re
 
-from .model import Match
+from .models import Match
 
 
 class Spike:
@@ -36,6 +36,3 @@ class Spike:
     @ staticmethod
     def get_news():
         pass
-
-
-Spike().get_match_results()

@@ -1,5 +1,5 @@
 class Match:
-    def __init__(self, team1: str, team2: str, score1: int, score2: int, event: str, url_path: str):
+    def __init__(self, team1: str, team2: str, score1: str, score2: str, event: str, url_path: str):
         self._team1 = team1
         self._team2 = team2
         self._score1 = score1
