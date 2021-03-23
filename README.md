@@ -9,7 +9,7 @@ Built by [Joseph Kim](https://github.com/josephsookim/)
 ### `/matches/results`
 
 - Method: `GET`
-- Cached Time: 300 seconds(5 Minutes)
+- Cached Time: 300 seconds (5 Minutes)
 - Response:
   ```python
   [
@@ -21,8 +21,35 @@ Built by [Joseph Kim](https://github.com/josephsookim/)
       'team2': str,
       'url_path': str
     },
-    # list of matches
+    # list of matches (dictionaries)
   ]
+  ```
+  
+### `/rankings`
+
+- Method: `GET`
+- Cached Time: 300 seconds (5 Minutes)
+- Response:
+  ```python
+  {
+    'region_name': [
+      {
+        'name': str,
+        'points': str,
+        'rank': str,
+        'roster': [
+          {
+            'ign': str,
+            'name': str,
+            'url_path': str
+          },
+          # list of players (dictionaries)
+        ]
+      },
+      # list of teams (dictionaries)
+    ],
+    # dictionary of regions
+  }
   ```
   
 ## Installation
