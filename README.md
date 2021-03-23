@@ -1,6 +1,6 @@
 # thespikeggapi
 
-An Unofficial REST API for [TheSpike.GG](https://www.thespike.gg/).
+An Unofficial REST API for [TheSpike.GG](https://www.thespike.gg/), a site for Valorant Esports match coverage.
 
 Built by [Joseph Kim](https://github.com/josephsookim/)
 
@@ -24,7 +24,14 @@ Built by [Joseph Kim](https://github.com/josephsookim/)
     # list of matches
   ]
   ```
+  
+## Installation
+will add later
 
 ## Built With
 
 - [Flask](https://flask.palletsprojects.com/en/1.1.x/)
+
+## Contributing
+
+Feel free to submit a pull request or an issue!
