@@ -1,6 +1,6 @@
 # thespikeggapi
 
-An Unofficial REST API for [TheSpike.GG](https://www.thespike.gg/).
+An Unofficial REST API for [TheSpike.GG](https://www.thespike.gg/), a site for Valorant Esports match coverage.
 
 Built by [Joseph Kim](https://github.com/josephsookim/)
 
