@@ -19,5 +19,11 @@ def results():
     return jsonify(spike.get_match_results())
 
 
+@cache.cached(timeout=300)
+@app.route('/rankings', methods=['GET'])
+def rankings():
+    return jsonify(spike.get_rankings())
+
+
 if __name__ == '__main__':
     app.run(debug=True)
