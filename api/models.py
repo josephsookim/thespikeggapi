@@ -26,9 +26,10 @@ class Player:
 
 
 class Team:
-    def __init__(self, name: str, roster: [str], points: str):
+    def __init__(self, name: str, roster: [str], rank: str, points: str):
         self._name = name
         self._roster = roster
+        self._rank = rank
         self._points = points
 
 
