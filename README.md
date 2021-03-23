@@ -43,10 +43,10 @@ Built by [Joseph Kim](https://github.com/josephsookim/)
             'name': str,
             'url_path': str
           },
-          # list of players (dictionaries)
+          # list of players within team (dictionaries)
         ]
       },
-      # list of teams (dictionaries)
+      # list of teams within region (dictionaries)
     ],
     # dictionary of regions
   }
