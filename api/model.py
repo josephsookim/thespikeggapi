@@ -7,7 +7,7 @@ class Match:
         self._event = event
         self._url_path = url_path
 
-    def get_info_dict(self) -> {str: str or int}:
+    def get_info_dict(self) -> {str: str}:
         return {
             'team1': self._team1,
             'team2': self._team2,
