@@ -53,7 +53,17 @@ Built by [Joseph Kim](https://github.com/josephsookim/)
   ```
   
 ## Installation
-will add later
+### Source
+```
+$ git clone https://github.com/josephsookim/thespikeggapi/
+$ cd thespikeggapi
+$ pip3 install -r requirements.txt
+```
+
+### Usage
+```
+python3 main.py
+```
 
 ## Built With
 
@@ -61,4 +71,7 @@ will add later
 
 ## Contributing
 
-Feel free to submit a pull request or an issue!
+Feel free to submit a [pull request](https://github.com/josephsookim/thespikeggapi/pull/new/master) or an [issue](https://github.com/josephsookim/thespikeggapi/issues/new)!
+
+## License
+The MIT License (MIT)
