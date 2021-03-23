@@ -2,7 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 import re
 
-from .models import Match
+from .models import Match, Player, Team
 
 
 class Spike:
@@ -10,14 +10,11 @@ class Spike:
 
     @staticmethod
     def get_match_results() -> [dict]:
-        response = requests.get(
-            f'{Spike.base_url}/matches/results')
+        url = f'{Spike.base_url}/matches/results'
 
-        soup = BeautifulSoup(response.content, 'html.parser')
-        matches = soup.findAll(
-            'li', {'class': 'single-match element-trim-button main-colour-background'})
+        soup = BeautifulSoup(requests.get(url).content, 'html.parser')
 
-        match_list = [
+        return [match.get_dict() for match in [
             Match(
                 *[team for team in ' '.join(re.split('\s+', match.find(
                     'div', {'class': 'match-info-match'}).text)).strip().split(' vs ')],
@@ -26,14 +23,27 @@ class Spike:
                 match.find('div', {'class': 'match-info-event'}).text.strip(),
                 match.find('a')['href']
             )
-            for match in matches
-        ]
-
-        return [match.get_dict() for match in match_list]
+            for match in soup.findAll(
+                'li', {'class': 'single-match element-trim-button main-colour-background'})
+        ]]
 
     @ staticmethod
     def get_rankings():
-        pass
+        url = f'{Spike.base_url}/rankings'
+        regions = ('na', 'eu', 'kr', 'jp', 'latam')
+        ids = (1, 2, 4, 5, 6)
+
+        soup = BeautifulSoup(requests.get(url).content, 'html.parser')
+
+        return {region: [team.get_dict() for team in [
+            Team(team.find('div', {'class': 'team-name'}).text.strip(),
+                 [Player(player.find('h3').text.strip(), player.find('p').text.strip(),
+                         player['href']) for player in team.find('ul', {'class': 'ranking-players-list'}).findAll('a')],
+                team.find('div', {'class': 'ranking-square'}).text.strip(),
+                team.find('div', {'class': 'ranking-points'}).text.strip())
+            for team in soup.find('ul', {'id': f'regional_ranking_listing_{id}'}).findAll('li', {'class': 'single-team-ranking'})]]
+            for region, id in zip(regions, ids)
+        }
 
     @ staticmethod
     def get_news():
