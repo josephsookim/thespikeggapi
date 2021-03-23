@@ -24,6 +24,13 @@ class Player:
         self._name = name
         self._url_path = url_path
 
+    def get_dict(self) -> {str: str}:
+        return {
+            'ign': self._ign,
+            'name': self._name,
+            'url_path': self._url_path
+        }
+
 
 class Team:
     def __init__(self, name: str, roster: [str], rank: str, points: str):
@@ -31,6 +38,14 @@ class Team:
         self._roster = roster
         self._rank = rank
         self._points = points
+
+    def get_dict(self) -> {str: str}:
+        return {
+            'name': self._name,
+            'roster': [player.get_dict() for player in self._roster],
+            'rank': self._rank,
+            'points': self._points
+        }
 
 
 class Article:
