@@ -19,15 +19,17 @@ class Spike:
 
         match_list = [
             Match(
-                *[team for team in ' '.join(re.split('\s+', match.find('div', {'class': 'match-info-match'}).text)).strip().split(' vs ')],
-                *[match.find('span', {'class': f'team-{num}'}).text.strip() for num in (1, 2)],
+                *[team for team in ' '.join(re.split('\s+', match.find(
+                    'div', {'class': 'match-info-match'}).text)).strip().split(' vs ')],
+                *[match.find('span', {'class': f'team-{num}'}
+                             ).text.strip() for num in (1, 2)],
                 match.find('div', {'class': 'match-info-event'}).text.strip(),
                 match.find('a')['href']
             )
             for match in matches
         ]
 
-        return [match.get_info_dict() for match in match_list]
+        return [match.get_dict() for match in match_list]
 
     @ staticmethod
     def get_rankings():

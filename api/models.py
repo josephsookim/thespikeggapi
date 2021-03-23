@@ -7,7 +7,7 @@ class Match:
         self._event = event
         self._url_path = url_path
 
-    def get_info_dict(self) -> {str: str}:
+    def get_dict(self) -> {str: str}:
         return {
             'team1': self._team1,
             'team2': self._team2,
@@ -16,3 +16,25 @@ class Match:
             'event': self._event,
             'url_path': self._url_path
         }
+
+
+class Player:
+    def __init__(self, ign: str, name: str, url_path: str):
+        self._ign = ign
+        self._name = name
+        self._url_path = url_path
+
+
+class Team:
+    def __init__(self, name: str, roster: [str], points: str):
+        self._name = name
+        self._roster = roster
+        self._points = points
+
+
+class Article:
+    def __init__(self, title: str, comment_count: str, date: str, url_path: str):
+        self._title = title
+        self._comment_count = comment_count
+        self._date = date
+        self._url_path = url_path
