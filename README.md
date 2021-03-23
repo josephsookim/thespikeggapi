@@ -62,7 +62,7 @@ $ pip3 install -r requirements.txt
 
 ### Usage
 ```
-py main.py
+python3 main.py
 ```
 
 ## Built With
