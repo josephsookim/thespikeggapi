@@ -15,11 +15,11 @@ Built by [Joseph Kim](https://github.com/josephsookim/)
   [
     {
       'event': str,
-      'score1': str
+      'score1': str,
       'score2': str,
       'team1': str,
       'team2': str,
-      'url_path': str,
+      'url_path': str
     },
     # list of matches
   ]
