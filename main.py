@@ -25,5 +25,11 @@ def rankings():
     return jsonify(spike.get_rankings())
 
 
+@cache.cached(timeout=300)
+@app.route('/news', methods=['GET'])
+def news():
+    return jsonify(spike.get_news())
+
+
 if __name__ == '__main__':
     app.run(debug=True)
