@@ -90,6 +90,8 @@ python3 main.py
 ## Built With
 
 - [Flask](https://flask.palletsprojects.com/en/1.1.x/)
+- [Requests](https://requests.readthedocs.io/en/master/)
+- [BeautifulSoup](https://www.crummy.com/software/BeautifulSoup/)
 
 ## Contributing
 
