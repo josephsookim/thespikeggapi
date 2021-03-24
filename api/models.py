@@ -54,3 +54,11 @@ class Article:
         self._comment_count = comment_count
         self._date = date
         self._url_path = url_path
+
+    def get_dict(self) -> {str: str}:
+        return {
+            'title': self._title,
+            'comment_count': self._comment_count,
+            'date': self._date,
+            'url_path': self._url_path
+        }
