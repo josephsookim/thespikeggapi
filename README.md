@@ -6,7 +6,7 @@ Built by [Joseph Kim](https://github.com/josephsookim/)
 
 ## Current Endpoints
 
-All endpoints are relative to https://thespikeggapi.herokuapp.com/.
+All endpoints are relative to https://thespikeggapi.herokuapp.com.
 
 ### `/matches/results`
 
