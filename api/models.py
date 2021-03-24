@@ -49,7 +49,7 @@ class Team:
 
 
 class Article:
-    def __init__(self, title: str, comment_count: str, date: str, url_path: str):
+    def __init__(self, title: str, date: str, comment_count: str, url_path: str):
         self._title = title
         self._comment_count = comment_count
         self._date = date
