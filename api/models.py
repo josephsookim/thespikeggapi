@@ -33,13 +33,13 @@ class Player:
 
 
 class Team:
-    def __init__(self, name: str, roster: [str], rank: str, points: str):
+    def __init__(self, name: str, roster: [Player], rank: str, points: str):
         self._name = name
         self._roster = roster
         self._rank = rank
         self._points = points
 
-    def get_dict(self) -> {str: str}:
+    def get_dict(self) -> {str: str or dict}:
         return {
             'name': self._name,
             'roster': [player.get_dict() for player in self._roster],
