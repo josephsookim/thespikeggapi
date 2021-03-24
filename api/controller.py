@@ -2,7 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 import re
 
-from .models import Match, Player, Team
+from .models import Match, Player, Team, Article
 
 
 class Spike:
@@ -46,5 +46,18 @@ class Spike:
         }
 
     @ staticmethod
-    def get_news():
-        pass
+    def get_news() -> dict:
+        soup = BeautifulSoup(requests.get(
+            Spike.base_url).content, 'html.parser')
+
+        return {time: [news_article.get_dict() for news_article in [
+            Article(article.find('div', {'class': 'news-title'}).text.strip(),
+                    article.find(('div', 'span'), {
+                                 'class': 'date'}).text.strip(),
+                    article.find(('div', 'span'), {
+                        'class': 'comments'}).text.strip(),
+                    article['href']
+                    )
+            for article in map(lambda article_section: article_section.find('a'), time_section.findAll('li'))]]
+            for time_section, time in zip(soup.find('div', {'id': 'news-module'}).findAll('ul', {'class': 'item-list'}), ('today', 'yesterday', 'past'))
+        }
