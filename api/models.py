@@ -51,14 +51,14 @@ class Team:
 class Article:
     def __init__(self, title: str, date: str, comment_count: str, url_path: str):
         self._title = title
-        self._comment_count = comment_count
         self._date = date
+        self._comment_count = comment_count
         self._url_path = url_path
 
     def get_dict(self) -> {str: str}:
         return {
             'title': self._title,
-            'comment_count': self._comment_count,
             'date': self._date,
+            'comment_count': self._comment_count,
             'url_path': self._url_path
         }
