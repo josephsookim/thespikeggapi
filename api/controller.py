@@ -28,7 +28,7 @@ class Spike:
         ]]
 
     @ staticmethod
-    def get_rankings():
+    def get_rankings() -> dict:
         url = f'{Spike.base_url}/rankings'
         regions = ('na', 'eu', 'kr', 'jp', 'latam')
         ids = (1, 2, 4, 5, 6)
