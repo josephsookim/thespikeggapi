@@ -54,6 +54,26 @@ All endpoints are relative to https://thespikeggapi.herokuapp.com.
   }
   ```
   
+### `/news`
+
+- Method: `GET`
+- Cached Time: 300 seconds (5 Minutes)
+- Response:
+  ```python
+  {
+    'time': [
+      {
+        'comment_count': str,
+        'date': str,
+        'title': str,
+        'url_path': str
+      },
+      # list of articles (dictionaries)
+    ],
+    # dictionary of times (past, today, yesterday)
+  }
+  ```
+  
 ## Installation
 ### Source
 ```
