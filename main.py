@@ -10,7 +10,10 @@ spike = Spike()
 @cache.cached(timeout=300)
 @app.route('/', methods=['GET'])
 def home():
-    return 'API is online!'
+    return jsonify({
+        'status': 'TheSpike.GG API is online!',
+        'github': 'https://github.com/josephsookim/thespikeggapi'
+    })
 
 
 @cache.cached(timeout=300)
