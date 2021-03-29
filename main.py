@@ -3,7 +3,7 @@ from flask_caching import Cache
 from api.controller import Spike
 
 app = Flask(__name__)
-app.config['JSONIFY_PRETTYPRINT_REGULAR'] = True
+app.config['DEBUG'] = True
 cache = Cache(app, config={'CACHE_TYPE': 'simple'})
 spike = Spike()
 
@@ -36,4 +36,4 @@ def news():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
