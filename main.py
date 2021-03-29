@@ -3,6 +3,7 @@ from flask_caching import Cache
 from api.controller import Spike
 
 app = Flask(__name__)
+app.config['JSONIFY_PRETTYPRINT_REGULAR'] = True
 cache = Cache(app, config={'CACHE_TYPE': 'simple'})
 spike = Spike()
 
