@@ -92,6 +92,8 @@ python3 main.py
 - [Flask](https://flask.palletsprojects.com/en/1.1.x/)
 - [Requests](https://requests.readthedocs.io/en/master/)
 - [BeautifulSoup](https://www.crummy.com/software/BeautifulSoup/)
+- [Flask-Caching](https://github.com/sh4nks/flask-caching)
+- [gunicorn](https://gunicorn.org/)
 
 ## Contributing
 
