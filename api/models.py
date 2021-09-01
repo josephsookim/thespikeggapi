@@ -7,7 +7,7 @@ class Match:
         self._event = event
         self._url_path = url_path
 
-    def get_dict(self) -> Dict[str: str]:
+    def get_dict(self) -> {str: str}:
         return {
             'team1': self._team1,
             'team2': self._team2,
@@ -24,7 +24,7 @@ class Player:
         self._name = name
         self._url_path = url_path
 
-    def get_dict(self) -> Dict[str: str]:
+    def get_dict(self) -> {str: str}:
         return {
             'ign': self._ign,
             'name': self._name,
@@ -33,13 +33,13 @@ class Player:
 
 
 class Team:
-    def __init__(self, name: str, roster: List[Player], rank: str, points: str):
+    def __init__(self, name: str, roster: [Player], rank: str, points: str):
         self._name = name
         self._roster = roster
         self._rank = rank
         self._points = points
 
-    def get_dict(self) -> Dict[str: str or dict]:
+    def get_dict(self) -> {str: str or dict}:
         return {
             'name': self._name,
             'roster': [player.get_dict() for player in self._roster],
@@ -55,7 +55,7 @@ class Article:
         self._comment_count = comment_count
         self._url_path = url_path
 
-    def get_dict(self) -> Dict[str: str]:
+    def get_dict(self) -> {str: str}:
         return {
             'title': self._title,
             'date': self._date,

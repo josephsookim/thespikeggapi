@@ -9,7 +9,7 @@ class Spike:
     base_url = 'https://www.thespike.gg'
 
     @staticmethod
-    def get_match_results() -> List[dict]:
+    def get_match_results() -> [dict]:
         url = f'{Spike.base_url}/matches/results'
 
         soup = BeautifulSoup(requests.get(url).content, 'html.parser')
@@ -41,7 +41,7 @@ class Spike:
                          player['href']) for player in team.find('ul', {'class': 'ranking-players-list'}).findAll('a')],
                 team.find('div', {'class': 'ranking-square'}).text.strip(),
                 team.find('div', {'class': 'ranking-points'}).text.strip())
-            for team in soup.find('ul', {'id': f'regional_ranking_listing_{id}'}).findAll('li', {'class': 'single-team-ranking'})]]
+            for team in soup.find('table', {'id': f'regional_ranking_listing_{id}'}).findAll('li', {'class': 'single-team-ranking'})]]
             for region, id in zip(regions, ids)
         }
 
