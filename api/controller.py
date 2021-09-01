@@ -9,7 +9,7 @@ class Spike:
     base_url = 'https://www.thespike.gg'
 
     @staticmethod
-    def get_match_results() -> [dict]:
+    def get_match_results() -> List[dict]:
         url = f'{Spike.base_url}/matches/results'
 
         soup = BeautifulSoup(requests.get(url).content, 'html.parser')
